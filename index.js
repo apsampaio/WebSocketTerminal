@@ -5,7 +5,7 @@ var port = "81"; //prompt("Digite a PORTA.");
 init(ip);
 
 function init(ip) {
-    Socket = new WebSocket(`ws://${ip}:${port}/`);
+    Socket = new WebSocket(`wss://${ip}:${port}/`);
     
     Socket.onmessage = (e) => {
         console.log(e);
