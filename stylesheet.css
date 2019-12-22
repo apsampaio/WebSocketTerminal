@@ -1,0 +1,54 @@
+body {
+    background-color: #6272a4;
+    color: #f8f8f2;
+}
+.fakeButtons {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+.fakeC {
+    background-color: #ff5555;
+}
+.fakeM {
+    background-color: #ffb86c;
+}
+.fakeZ {
+    background-color: #50fa7b;
+}
+
+#main {
+    text-align: center;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+button {
+    background-color: #44475a;
+    color: #f8f8f2;
+    border: 3px solid #44475a; 
+    border-radius: 10%;
+    padding: 5px;
+    box-shadow: 0px 3px #515364, 0px 4px 5px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    border: 3px solid #515364; 
+    background-color: #515364;
+    transition: all ease .1s;
+}
+
+textarea {
+    width: 90%;
+    background-color: #44475a;
+    border: solid #44475a 10px;
+    color: #f8f8f2;
+}
+
+textarea:focus {
+    background-color: #515364;
+    border: solid #515364 10px;
+    transition: all ease .5s;
+    border-radius: 5%;
+}

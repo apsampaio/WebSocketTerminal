@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='stylesheet.css' rel='stylesheet' type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebSocket Terminal</title>
+</head>
+<body>
+    <div class="fakeButtons fakeC"></div>
+    <div class="fakeButtons fakeM"></div>
+    <div class="fakeButtons fakeZ"></div>
+    <div id="main">
+        <h1>Receive</h1>
+        <textarea placeholder="Waiting for a message..." id="textReceive" rows="4" readonly></textarea>
+
+        <h1>Transmit</h1>
+        <textarea placeholder="Type a message..." id="textSend" rows="4"></textarea><br>
+        <button onclick="sendText()">Send</button>
+
+        <p id="connectionIP"></p>
+        <p id="connectionState">Connection State: </p>
+        <button onclick="init(ip)">Reconnect</button>
+        <button onclick="ip = prompt('Type the new IP.')">Change IP</button>
+        <button onclick="port = prompt('Type the new Port.')">Change Port</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
