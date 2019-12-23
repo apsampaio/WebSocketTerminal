@@ -21,10 +21,10 @@
         <button onclick="sendText()">Send</button>
 
         <p id="connectionIP"></p>
-        <p id="connectionState">Connection State: </p>
-        <button onclick="init(ip)">Reconnect</button>
-        <button onclick="ip = prompt('Type the new IP.')">Change IP</button>
-        <button onclick="port = prompt('Type the new Port.')">Change Port</button>
+        <p id="connectionState">Connection State: Not Connected</p>
+        <button id="ConnectButton" onclick="connectionSelector()">Connect</button>
+        <button onclick="changeIpPort(1)">Change IP</button>
+        <button onclick="changeIpPort(0)">Change Port</button>
     </div>
     <script src="index.js"></script>
 </body>

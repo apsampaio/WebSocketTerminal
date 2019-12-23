@@ -1,14 +1,15 @@
 var Socket;
-var ip = "192.168.0.14"; //prompt("Digite o IP.");
-var port = "81"; //prompt("Digite a PORTA.");
+
+var ip = "192.168.0.14";
+var port = "81"; 
+
 var receiveBox = document.querySelector("#textReceive");
+var connectButton = document.querySelector("#ConnectButton");
+
 var splitString = "$ ";
 
-init(ip);
-
-function init(ip) {
+function init() {
     Socket = new WebSocket(`ws://${ip}:${port}/`);
-    
     Socket.onmessage = (e) => {
         var message = e.data;
         if (message.length > 1) {
@@ -21,8 +22,6 @@ function init(ip) {
             }
             else splitString += message;
         }
-
-        
         receiveBox.scrollTop = receiveBox.scrollHeight;
     }
     Socket.onclose = (e) => {
@@ -49,11 +48,44 @@ function connectionState(state) {
     var newState;
     var style = document.querySelector("#connectionState").style;
     switch (state) {
-        case 0: newState = "Connecting...";        style.color = "#f1fa8c"; break;
-        case 1: newState = "Connection Open.";     style.color = "#50fa7b"; break;
-        case 2: newState = "Closing Connection.."; style.color = "#ffb86c"; break;
-        case 3: newState = "Connection Closed.";   style.color = "#fa8686"; break;
+        case 0: newState = "Connecting...";
+                style.color = "#f1fa8c";
+                connectButton.disabled = true;
+        break;
+        case 1: newState = "Connection Open.";
+                style.color = "#50fa7b";
+                connectButton.innerText = "Disconnect";
+                connectButton.disabled = false;
+        break;
+        case 2: newState = "Closing Connection...";
+                style.color = "#ffb86c";
+                connectButton.disabled = true;
+        break;
+        case 3: newState = "Connection Closed.";
+                style.color = "#fa8686";
+                connectButton.innerText = "Reconnect";
+                connectButton.disabled = false;
+        break;
     }
     document.querySelector("#connectionState").innerText = `${newState}`;
+}
+function connectionSelector() {
+    
+    switch (connectButton.innerText) {
+        case "Connect":
+        case "Reconnect":
+            init();
+        break;
+        
+        case "Disconnect": Socket.close();
+        break;
+    }
+
+}
+function changeIpPort(which) {
+
+    if (which) ip = prompt('Type the new IP.');
+    else port = prompt('Type the new Port.');
+
 }
 
