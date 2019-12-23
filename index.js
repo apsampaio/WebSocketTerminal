@@ -1,6 +1,8 @@
 var Socket;
 var ip = "192.168.0.14"; //prompt("Digite o IP.");
 var port = "81"; //prompt("Digite a PORTA.");
+var receiveBox = document.querySelector("#textReceive");
+var splitString = "$ ";
 
 init(ip);
 
@@ -8,8 +10,20 @@ function init(ip) {
     Socket = new WebSocket(`ws://${ip}:${port}/`);
     
     Socket.onmessage = (e) => {
-        console.log(e);
-        document.querySelector("#textReceive").value += `\n>_ ${e.data}`;
+        var message = e.data;
+        if (message.length > 1) {
+            message = message.slice(0, message.indexOf("\0"));
+            receiveBox.value += `$ ${message}\n`
+        } else {
+            if (message == "\n") {
+                receiveBox.value += `${splitString}\n`
+                splitString = "$ ";
+            }
+            else splitString += message;
+        }
+
+        
+        receiveBox.scrollTop = receiveBox.scrollHeight;
     }
     Socket.onclose = (e) => {
         console.log(e);
