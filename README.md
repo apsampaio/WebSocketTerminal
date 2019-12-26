@@ -1,10 +1,8 @@
 # Web Socket Terminal 
-[![WebSocket Terminal.io](https://github.com/apsampaio/WebSocketTerminal/blob/master/img/preview.png?raw=true)](https://apsampaio.github.io/WebSocketTerminal/)
 > Communicate with ESP8266 using WebSockets
+[![WebSocket Terminal.io](https://github.com/apsampaio/WebSocketTerminal/blob/master/img/preview.png?raw=true)](https://apsampaio.github.io/WebSocketTerminal/)
 
 A simple terminal created for debugging of esp8266 using WebSockets. The project can be used as a base for real applications with ESP8266 as well.
-
-![](https://github.com/apsampaio/WebSocketTerminal/blob/master/img/preview.png?raw=true)
 
 ## Installation
 
