@@ -1,3 +1,6 @@
+/*
+Tested with the nodeMCU board running ESP12-E
+*/
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <WebSocketsServer.h>
