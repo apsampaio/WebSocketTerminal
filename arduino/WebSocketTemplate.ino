@@ -46,9 +46,10 @@ void setup()
 void loop() {
   
   webSocket.loop();
-  if(Serial.available() > 0){
+  if(Serial.available() > 0) {
     char c[] = {(char)Serial.read()};
     webSocket.broadcastTXT(c, sizeof(c));
+  }
 }
 
 void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length){
@@ -57,4 +58,4 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
         Serial.print((char) payload[i]);
       Serial.println();
   }
- 
+}

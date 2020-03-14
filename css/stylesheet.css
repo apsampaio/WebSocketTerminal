@@ -44,11 +44,11 @@ textarea {
     background-color: #44475a;
     border: solid #44475a 10px;
     color: #f8f8f2;
+    min-width: 30%;
 }
 
 textarea:focus {
     background-color: #515364;
     border: solid #515364 10px;
     transition: all ease .5s;
-    border-radius: 5%;
 }
